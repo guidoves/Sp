@@ -1,0 +1,41 @@
+<form [formGroup]="form" novalidate="novalidate" (ngSubmit)="logUser()" >
+
+  <div class="col-sm-12 form-group">
+      <label>Nombre <small>(*)</small></label>
+      <input class="form-control" type="text"
+        formControlName="name" placeholder="Ingrese Nombre">
+    </div>
+    <div class="col-sm-12 form-group">
+      <label>Email <small>(*)</small></label>
+      <input class="form-control" type="email"
+        formControlName="email" placeholder="Ingrese Email">
+    </div>
+    <div class="col-sm-12 form-group">
+      <label>Contraseña <small>(*)</small></label>
+      <input class="form-control" type="password"
+        formControlName="password" placeholder="Ingrese su contraseña">
+    </div>
+    <div class="col-sm-12 form-group">
+      <label>Perfil <small>(*)</small></label>
+      <select class="custom-select" formControlName="profile">
+        <option value="profesional">Profesional</option>
+        <option value="normal">Normal</option>
+        <option value="free">Free</option>
+      </select>
+    </div>
+    <div class="m-2 col-sm-12 col-md-6 form-group">
+      <button [disabled]=" form.valid  == false " class="btn btn-success" type="submit">Ingresar</button>
+    </div>
+    <div class="m-2 col-sm-12 col-md-6 form-group">
+      <input class="btn btn-warning" type="button" (click)="testFree()" value="Perfil Free">
+    </div>
+    <div class="m-2 col-sm-12 col-md-6 form-group">
+      <input class="btn btn-primary" type="button" (click)="testNormal()" value="Perfil Normal">
+    </div>
+    <div class="m-2 col-sm-12 col-md-6 form-group">
+      <input class="btn btn-danger" type="button" (click)="testProfesional()" value="Perfil Profesional">
+    </div>
+
+
+
+</form>
