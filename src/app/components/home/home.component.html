@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">Bienvenido {{user | titlecase}} !!</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -16,7 +16,9 @@
           <a class="dropdown-item" href="#">Almacenamiento de archivos</a>
         </div>
       </li>
-
+      <li class="nav-item">
+        <a class="nav-link puntero" (click)="openModal(template)">Alta Servicio</a>
+      </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <button class="btn btn-sm btn-outline-warning my-2 my-sm-0" type="submit">Cerrar sesión</button>
@@ -29,13 +31,14 @@
 <ng-template #template>
   
   <div class="modal-header">
-    <h4 class="title modal-title pull-left">Alta Cliente</h4>
-    <button type="button" class="close pull-right" aria-label="Close" (click)="altaClienteModal.hide()">
+    <h4 class="title modal-title pull-left">Alta servicio</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modal.hide()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
-    <app-altacliente (respuesta)="altaCliente($event)" [operacion]="'Nuevo'"></app-altacliente>
+   <!--  <app-altacliente (respuesta)="altaCliente($event)" [operacion]="'Nuevo'"></app-altacliente> -->
+    <app-altaservicio (answer)=""></app-altaservicio>
   </div>
   <p-messages [(value)]="msgs"></p-messages>
 

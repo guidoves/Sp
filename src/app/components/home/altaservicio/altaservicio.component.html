@@ -1,3 +1,23 @@
-<p>
-  altaservicio works!
-</p>
+<form [formGroup]="form" novalidate="novalidate" (ngSubmit)="newServ()">
+
+    <div class="col-sm-12 form-group">
+        <label>Nombre del Dominio</label>
+        <input [ngClass]="{ 'error' : form.get('name').invalid && form.get('name').touched }" class="form-control" type="text"
+          formControlName="name" placeholder="Ingrese">
+          <div *ngIf="form.get('name').invalid && form.get('name').touched" class="errdesc">
+            <small>Ingreso inváldo</small>
+          </div>
+      </div>
+      <div class="col-sm-12 form-group">
+        <label>Cantidad de MB</label>
+        <input [ngClass]="{ 'error' : form.get('storage').invalid && form.get('storage').touched }" class="form-control" type="text"
+          formControlName="storage" placeholder="Ingrese">
+          <div *ngIf="form.get('storage').invalid && form.get('storage').touched" class="errdesc">
+            <small>Ingreso inváldo. Solo Numeros.</small>
+          </div>
+      </div>
+      <div class="m-2 col-sm-12 col-md-6 form-group">
+        <button [disabled]=" form.valid  == false " class="btn btn-success" type="submit">Alta</button>
+      </div>
+
+</form>

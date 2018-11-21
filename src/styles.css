@@ -3,3 +3,17 @@
 body{
     background-color: azure;
 }
+
+
+.puntero {
+    cursor: pointer;
+}
+
+
+.error{
+    border: 2px solid red;
+}
+
+.errdesc{
+    color : red;
+}
