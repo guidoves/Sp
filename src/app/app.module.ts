@@ -16,6 +16,7 @@ import { FormComponent } from './components/admin/users/form/form.component';
 import { FormularioComponent } from './components/formulario/formulario.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
+import { AltaservicioComponent } from './components/home/altaservicio/altaservicio.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HomeComponent } from './components/home/home.component';
     FormComponent,
     FormularioComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    AltaservicioComponent
   ],
   imports: [
     BrowserModule,

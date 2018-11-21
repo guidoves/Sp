@@ -6,30 +6,38 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
+          Productos
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" href="#">Instancias de Servidores</a>
+          <a class="dropdown-item" href="#">Base de datos</a>
+          <a class="dropdown-item" href="#">Almacenamiento de archivos</a>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
+
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <button class="btn btn-sm btn-outline-warning my-2 my-sm-0" type="submit">Cerrar sesión</button>
     </form>
   </div>
 </nav>
+
+
+
+<ng-template #template>
+  
+  <div class="modal-header">
+    <h4 class="title modal-title pull-left">Alta Cliente</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="altaClienteModal.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <app-altacliente (respuesta)="altaCliente($event)" [operacion]="'Nuevo'"></app-altacliente>
+  </div>
+  <p-messages [(value)]="msgs"></p-messages>
+
+  
+</ng-template>
