@@ -37,8 +37,12 @@ export class FormComponent implements OnInit {
 
   newUser() {
     const body = this.form.value;
-
-    const nwUser: User = new User(body.name, body.profile, body.email, body.password);
+    const nwUser = new User();
+    nwUser.name = body.name;
+    nwUser.email = body.email;
+    nwUser.password = body.password;
+    nwUser.profile = body.profile;
+    nwUser.sexo = body.sexo;
 
     this.answer.emit(nwUser);
   }

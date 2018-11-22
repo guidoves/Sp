@@ -23,10 +23,9 @@ export class LoginComponent implements OnInit {
   }
 
   login(data: any) {
-    this._login.isLogin = 1;
-    // this._login.login(data.user, data.password, data.email, data.profile);
+    // this._login.isLogin = 1;
+    this._login.login(data.user, data.password, data.email, data.profile);
   }
 
-  
 
 }

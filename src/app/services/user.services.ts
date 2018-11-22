@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { GlobalService } from './global.services';
+import { User } from '../classes/User';
 
 
 @Injectable({
@@ -8,16 +9,24 @@ import { GlobalService } from './global.services';
 
 export class UserServices {
 
-    constructor(private _global: GlobalService) {
+    constructor(private _global: GlobalService) { }
+
+    newUser(user: User) {
+
+        const body = {
+            'user_name': user.name,
+            'profile': user.profile,
+            'email': user.email,
+            'password': user.password,
+            'sexo': user.sexo
+        };
+
+        return this._global.post('users/new', body).toPromise();
 
     }
 
     allUsers() {
-        return [
-            {'name': 'juan', 'type': 'admin'}, {'name': 'ramon', 'type': 'admin'},
-             {'name': 'juana', 'type': 'empleado'}, {'name': 'marcela', 'type': 'empleado'},
-              {'name': 'gonzalo', 'type': 'empleado'}, {'name': 'maria', 'type': 'empleado'}
-        ];
+        return this._global.get('users/all').toPromise();
     }
 
 }

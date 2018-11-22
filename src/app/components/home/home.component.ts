@@ -1,7 +1,10 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { UserServices } from './../../services/user.services';
+import { Component, OnInit, TemplateRef, EventEmitter, Output } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Message } from 'primeng/components/common/api';
 import { LoginService } from 'src/app/services/login.services';
+import { Router } from '@angular/router';
+import { OuterSubscriber } from 'rxjs/internal/OuterSubscriber';
 
 @Component({
   selector: 'app-home',
@@ -18,8 +21,11 @@ export class HomeComponent implements OnInit {
 
   msgs: Message[] = [];
 
-  constructor(private _modalService: BsModalService, private _login: LoginService) {
+  @Output() outuser: EventEmitter<any>;
+
+  constructor(private _router: Router, private _modalService: BsModalService, private _login: LoginService, private _user: UserServices) {
       this.user = localStorage.getItem('user_name');
+      this.outuser = new EventEmitter();
   }
 
   openModal(template: TemplateRef<any>) {
@@ -35,7 +41,13 @@ export class HomeComponent implements OnInit {
   }
 
   newUser(user: any) {
-     return user;
+     // console.log(user);
+
+    this._user.newUser(user)
+    .then((es => {
+      this.modal.hide();
+      this.outuser.emit(user);
+    }));
   }
 
 

@@ -1,9 +1,9 @@
 
 <div *ngIf="_login.isLogin === 1" >
     
-    <app-home></app-home>
+    <app-home (outuser)="newUser($event)"></app-home>
 
-    <div class="container-fluid">
+    <div *ngIf="nav" class="container-fluid">
 
         <router-outlet></router-outlet>
         

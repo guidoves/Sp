@@ -2,7 +2,7 @@ import { Component, TemplateRef, Output, EventEmitter } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Message } from 'primeng/components/common/api';
 import { UserServices } from '../../../services/user.services';
- 
+
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
@@ -11,7 +11,7 @@ import { UserServices } from '../../../services/user.services';
 export class UsersComponent {
 
   //
-  users = [];
+  // users = [];
 
   // MODAL
   altaClienteModal: BsModalRef;
@@ -24,7 +24,7 @@ export class UsersComponent {
 
   constructor(private _modalService: BsModalService, private _userServices: UserServices) {
     this.altacambios = new EventEmitter();
-    this.users = this._userServices.allUsers();
+    // this.users = this._userServices.allUsers();
    }
 
    abrirModal(template: TemplateRef<any>) {

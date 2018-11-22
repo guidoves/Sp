@@ -8,6 +8,19 @@ import { LoginService } from './services/login.services';
 })
 export class AppComponent {
 
-  constructor(private _login: LoginService) { }
+  nav;
+
+  constructor(private _login: LoginService) {
+
+    this.nav = true;
+
+  }
+
+  newUser(user: any) {
+    this.nav = false;
+    setTimeout(() => {
+      this.nav = true;
+    }, 1000);
+  }
 
 }

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { UserServices } from './../../services/user.services';
+import { Component, OnInit, Input } from '@angular/core';
+import { User } from '../../classes/User';
 
 @Component({
   selector: 'app-tablaclientes',
@@ -7,7 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TablaclientesComponent implements OnInit {
 
-  constructor() { }
+  users: User[];
+
+  constructor(private _users: UserServices) {
+      this._users.allUsers()
+      .then( (res: any) => {
+          this.users = res;
+      });
+   }
 
   ngOnInit() {
   }
