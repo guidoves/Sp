@@ -19,7 +19,8 @@ export class AltaservicioComponent implements OnInit {
     this.form = new FormGroup(
         {
           'name': new FormControl('', [Validators.required, Validators.minLength(1)]),
-          'storage': new FormControl('', [Validators.required, Validators.pattern('^[0-9]{1,100}$')])
+          'storage': new FormControl('', [Validators.required, Validators.pattern('^[0-9]{1,100}$')]),
+          'price': new FormControl('', [Validators.required, Validators.pattern('^[0-9]+([.][0-9]+)?$')])
         }
     );
 
@@ -27,7 +28,6 @@ export class AltaservicioComponent implements OnInit {
 
   newServ() {
      const body = this.form.value;
-
       this.answer.emit(body);
 
   }

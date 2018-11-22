@@ -16,6 +16,14 @@
             <small>Ingreso inváldo. Solo Numeros.</small>
           </div>
       </div>
+      <div class="col-sm-12 form-group">
+          <label>Precio</label>
+          <input [ngClass]="{ 'error' : form.get('price').invalid && form.get('price').touched }" class="form-control" type="text"
+            formControlName="price" placeholder="Ingrese">
+                    <div *ngIf="form.get('price').invalid && form.get('price').touched" class="errdesc">
+              <small>Ingreso inváldo. Solo Numeros.</small>
+            </div>
+        </div>
       <div class="m-2 col-sm-12 col-md-6 form-group">
         <button [disabled]=" form.valid  == false " class="btn btn-success" type="submit">Alta</button>
       </div>

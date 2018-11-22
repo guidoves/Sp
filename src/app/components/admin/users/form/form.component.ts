@@ -14,36 +14,35 @@ export class FormComponent implements OnInit {
 
   form: FormGroup;
 
-  @Output() response: EventEmitter<any>;
-  @Input() user: User;
-  @Input() operation: string;
+  @Output() answer: EventEmitter<any>;
+
+  // @Input() user: User;
+  // @Input() operation: string;
 
   constructor() {
 
-    this.form = new FormGroup({
-      'name' : new FormControl('', [Validators.required, Validators.pattern('^[a-zA-ZÑñáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙ \s]{1,50}$')]),
-      'password' : new FormControl('', [Validators.required]),
-      'role' : new FormControl('', [Validators.required]),
-    });
+    this.answer = new EventEmitter();
 
-    this.response = new EventEmitter();
+      this.form = new FormGroup(
+          {
+            'name': new FormControl('', Validators.required),
+            'email': new FormControl('', Validators.required),
+            'password': new FormControl('', Validators.required),
+            'profile': new FormControl('', Validators.required),
+            'sexo': new FormControl('', Validators.required)
+          }
+      );
 
   }
 
   newUser() {
     const body = this.form.value;
 
-    const nwUser: User = new User(body.name, body.role);
-    this.response.emit(nwUser);
+    const nwUser: User = new User(body.name, body.profile, body.email, body.password);
+
+    this.answer.emit(nwUser);
   }
 
-  ngOnInit() {
-
-    if (this.user) {
-      this.form.get('nombre').setValue(this.user.name);
-      this.form.get('documento').setValue(this.user.role);
-    }
-
-  }
+  ngOnInit() { }
 
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { Message } from 'primeng/components/common/api';
+import { LoginService } from 'src/app/services/login.services';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +14,11 @@ export class HomeComponent implements OnInit {
 
   modal: BsModalRef;
 
-  constructor(private _modalService: BsModalService) {
+  services = [];
+
+  msgs: Message[] = [];
+
+  constructor(private _modalService: BsModalService, private _login: LoginService) {
       this.user = localStorage.getItem('user_name');
   }
 
@@ -22,5 +28,16 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  newService(service: any) {
+    this.services.push(service);
+    this.modal.hide();
+  }
+
+  newUser(user: any) {
+     return user;
+  }
+
+
 
 }

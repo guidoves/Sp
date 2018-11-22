@@ -18,6 +18,14 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { AltaservicioComponent } from './components/home/altaservicio/altaservicio.component';
 
+import { DolarPipe } from './pipes/dolar.pipe';
+import { MegaPipe } from './pipes/megabyte.pipe';
+import { SexoDirective } from './directives/sexo.directive';
+import { TablaclientesComponent } from './components/tablaclientes/tablaclientes.component';
+import { ServidoresComponent } from './components/servidores/servidores.component';
+import { BdComponent } from './components/bd/bd.component';
+import { StorageComponent } from './components/storage/storage.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +37,14 @@ import { AltaservicioComponent } from './components/home/altaservicio/altaservic
     FormularioComponent,
     LoginComponent,
     HomeComponent,
-    AltaservicioComponent
+    AltaservicioComponent,
+    DolarPipe,
+    MegaPipe,
+    SexoDirective,
+    TablaclientesComponent,
+    ServidoresComponent,
+    BdComponent,
+    StorageComponent
   ],
   imports: [
     BrowserModule,
